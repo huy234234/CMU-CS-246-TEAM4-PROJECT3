@@ -368,43 +368,60 @@ public class mycar extends javax.swing.JFrame {
 
     private void xxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xxActionPerformed
         // TODO add your handling code here:
-        try{
-            double numx = Double.parseDouble(txta.getText());
-            double binhphuong = numx*numx;
-            txtc.setText(binhphuong + "");
-        }catch(NumberFormatException e){
-            txtc.setText("Please enter numbers only. ");
-            System.err.println("Error: " + e.getMessage());
-        }
+// TODO add your handling code here:
+    try {
+     double num1 = Double.parseDouble(txta.getText());
+     double num2 = Double.parseDouble(txtb.getText());  // Thêm dòng này để đọc số thứ hai từ txtb
+
+     double binhphuong1 = num1 * num1;
+     double binhphuong2 = num2 * num2;  // Thêm dòng này để tính bình phương số thứ hai
+
+     double tongBinhPhuong = binhphuong1 + binhphuong2;  // Tính tổng bình phương hai số
+
+     txtc.setText(tongBinhPhuong + "");
+    } catch (NumberFormatException e) {
+     txtc.setText("Please enter numbers only.");
+     System.err.println("Error: " + e.getMessage());
+    }
+
     }//GEN-LAST:event_xxActionPerformed
 
     private void canbachaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canbachaiActionPerformed
         // TODO add your handling code here:
-        try{
-            double numx = Double.parseDouble(txta.getText());
-            double sqrt= Math.sqrt(numx);
-            txtc.setText(sqrt + "");
-            if(numx==0){
-                numx=0;
-            }else if(numx<0){
-                 txtc.setText("Unachievable!");
-            }
-        }catch(NumberFormatException e){
-            txtc.setText("Please enter numbers only. ");
-            System.err.println("Error: " + e.getMessage());
-        }
+    try {
+      double num1 = Double.parseDouble(txta.getText());
+      double num2 = Double.parseDouble(txtb.getText());  // Thêm dòng này để đọc số thứ hai từ txtb
+
+      // Kiểm tra tính hợp lệ của đầu vào
+      if (num1 < 0 || num2 < 0) {
+        throw new IllegalArgumentException("Square root of negative numbers is not defined.");
+      }
+
+      double sqrtNum1 = Math.sqrt(num1);
+      double sqrtNum2 = Math.sqrt(num2);
+
+      // Tính tổng căn bậc hai
+      double tongCanBacHai = sqrtNum1 + sqrtNum2;
+
+      txtc.setText(tongCanBacHai + "");
+    } catch (NumberFormatException e) {
+      txtc.setText("Please enter numbers only.");
+      System.err.println("Error: Number format exception: " + e.getMessage());
+    } catch (IllegalArgumentException e) {
+      txtc.setText("Error: Cannot calculate square root of negative numbers.");
+      System.err.println("Error: " + e.getMessage());
+    }
+
     }//GEN-LAST:event_canbachaiActionPerformed
 
     private void dellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dellActionPerformed
         // TODO add your handling code here:
     // TODO add your handling code here:
-    String tam = txta.getText();  // Get the text from txta
+    String tam = txta.getText();// Get the text from txta
     String x = ""; // Initialize x as an empty string
     for (int i = 1; i < tam.length(); i++) {
-        x += tam.charAt(i);  // Build the new string x without the first character
-    }
+        x += tam.charAt(i);    }
     txta.setText(x);  // Set the modified text to txta
-
     }//GEN-LAST:event_dellActionPerformed
 
     private void delrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delrActionPerformed
